@@ -16,9 +16,11 @@
     "charlie-utils": "^2.1.52",
     "echarts": "^5.4.1",
     "moment": "2.29.4",
+    "qs": "^6.11.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-router-dom": "6.8.1"
+    "react-router-dom": "6.8.1",
+    "js-cookie": "^3.0.1"
   },
   "devDependencies": {
     "@babel/core": "7.12.3",
@@ -34,6 +36,7 @@
     "bfj": "^7.0.2",
     "camelcase": "^6.1.0",
     "case-sensitive-paths-webpack-plugin": "2.3.0",
+    "compression-webpack-plugin": "^5.0.0",
     "css-loader": "4.3.0",
     "dotenv": "8.2.0",
     "dotenv-expand": "5.1.0",
@@ -76,10 +79,8 @@
     "webpack": "4.44.2",
     "webpack-dev-server": "3.11.0",
     "webpack-manifest-plugin": "2.2.0",
-    "workbox-webpack-plugin": "5.1.4",
-    "compression-webpack-plugin": "^5.0.0"
+    "workbox-webpack-plugin": "5.1.4"
   },
-
   "browserslist": [
     ">0.2%",
     "not dead",
