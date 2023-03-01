@@ -13,7 +13,7 @@ const Chart = (props) => {
     const resize = () => chart.resize()
     window.removeEventListener('resize', resize)
     window.addEventListener('resize', resize)
-  })
+  }, [])
   return (
     <div
       ref={chartDom}

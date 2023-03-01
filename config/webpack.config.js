@@ -512,7 +512,12 @@ module.exports = function(webpackEnv) {
                     : isEnvDevelopment
                 },
                 'less-loader'
-              ),
+              ).concat({
+                loader: require.resolve('style-resources-loader'),
+                options: {
+                  patterns: [path.resolve(__dirname, '../src/styles/variables.less')]
+                }
+              }),
               // Don't consider CSS imports dead code even if the
               // containing package claims to have no side effects.
               // Remove this when webpack adds a warning or an error for this.
