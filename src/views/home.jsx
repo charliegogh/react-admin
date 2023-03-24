@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useAppDispatch } from '../app/hooks'
-import { setTitle } from '../app/appSlice'
-import { removeToken } from '../utils/auth'
+import { logout } from './login/slice'
+import { removeToken } from '@/utils/auth'
 export default function App() {
   const dispatch = useAppDispatch()
   useEffect(() => {
@@ -11,14 +11,12 @@ export default function App() {
     // getData()
   })
   const handleUseSelector = () => {
-    dispatch(setTitle(10))
   }
   const logOut = () => {
     removeToken()
-    dispatch(setTitle(1))
+    dispatch(logout())
   }
   return <div className='App'>
-    <button onClick={() => handleUseSelector()}>测试useSelector钩子函数</button>
     <button onClick={() => logOut()}>退出登录</button>
   </div>
 }
