@@ -1,14 +1,15 @@
 import { Button, Form, Input } from "antd";
 import "./style.less";
 import { useState } from "react";
-import { setToken } from "../../utils/auth";
+import { useAppDispatch } from "@/app/hooks";
 export default function App() {
   const [loadings, setLoadings] = useState(false);
   const onFinish = (values) => {
+    const dispatch = useAppDispatch();
     setLoadings(true);
-    setToken("test");
-    // 页面重载，后续考虑redux
-    location.reload();
+    // 分发请求登陆的异步ation
+    const action = await dispatch(loginAsync(values))
+    console.log(action)
   };
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);

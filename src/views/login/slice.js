@@ -3,6 +3,12 @@ import { setToken, getToken } from "@/utils/auth";
 const initialState = {
   token: getToken(),
 };
+import { postAction } from "@/api";
+
+// 登陆
+export const loginAsync = createAsyncThunk("user/loginAsync", (params) =>
+  postAction(params)
+);
 
 const userSlice = createSlice({
   name: "user",
@@ -14,6 +20,12 @@ const userSlice = createSlice({
       state.token = token;
       setToken(token);
     },
+  },
+  extraReducers(builder) {
+    builder // 登陆请求成功后的reducer处理
+      .addCase(loginAsync.fulfilled, (state, action) => {
+        console.log(action);
+      });
   },
 });
 // 暴露reducer
