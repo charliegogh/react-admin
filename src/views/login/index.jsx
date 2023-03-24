@@ -1,77 +1,77 @@
-import { Button, Form, Input } from 'antd'
-import './style.less'
-import { useState } from 'react'
-import { setToken } from '../../utils/auth'
+import { Button, Form, Input } from "antd";
+import "./style.less";
+import { useState } from "react";
+import { setToken } from "../../utils/auth";
 export default function App() {
-  const [loadings, setLoadings] = useState(false)
+  const [loadings, setLoadings] = useState(false);
   const onFinish = (values) => {
-    setLoadings(true)
-    setToken('test')
+    setLoadings(true);
+    setToken("test");
     // 页面重载，后续考虑redux
-    location.reload()
-  }
+    location.reload();
+  };
   const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo)
-  }
+    console.log("Failed:", errorInfo);
+  };
   return (
-    <div className='login'>
-      <div className='bg'>
+    <div className="login">
+      <div className="bg">
         <div />
-        <div className='form-wrapper'>
-          <div className='title'>登录</div>
+        <div className="form-wrapper">
+          <div className="title">login</div>
           <Form
-            name='basic'
-            initialValues={{ username: 'admin', password: '111111' }}
+            name="basic"
+            initialValues={{ username: "admin", password: "111111" }}
             labelCol={{
-              span: 6
+              span: 6,
             }}
             wrapperCol={{
-              span: 18
+              span: 18,
             }}
             style={{
-              width: 330
+              width: 330,
             }}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
-            autoComplete='off'
+            autoComplete="off"
           >
             <Form.Item
-              label='Username'
-              name='username'
+              label="Username"
+              name="username"
               rules={[
                 {
                   required: true,
-                  message: 'Please input your username!'
-                }
+                  message: "Please input your username!",
+                },
               ]}
             >
               <Input />
             </Form.Item>
 
             <Form.Item
-              label='Password'
-              name='password'
+              label="Password"
+              name="password"
               rules={[
                 {
                   required: true,
-                  message: 'Please input your password!'
-                }
+                  message: "Please input your password!",
+                },
               ]}
             >
               <Input.Password />
             </Form.Item>
             <Form.Item
               wrapperCol={{
-                span: 24
+                span: 24,
               }}
             >
               <Button
                 loading={loadings}
                 style={{
-                  width: '100%'
+                  width: "100%",
                 }}
-                type='primary'
-                htmlType='submit'
+                type="primary"
+                htmlType="submit"
               >
                 Submit
               </Button>
@@ -80,5 +80,5 @@ export default function App() {
         </div>
       </div>
     </div>
-  )
+  );
 }
