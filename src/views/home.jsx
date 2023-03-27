@@ -13,7 +13,6 @@ export default function App() {
   const handleUseSelector = () => {
   }
   const logOut = () => {
-    removeToken()
     dispatch(logout())
   }
   return <div className='App'>

@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { getToken } from '@/utils/auth'
+import { notification } from 'antd'
 const service = axios.create({
   baseURL: 'http://localhost:88/',
   withCredentials: true, // 允许携带 cookie
@@ -18,9 +19,19 @@ service.interceptors.request.use(config => {
 //  响应拦截器
 service.interceptors.response.use(
   response => {
+    console.log('~~~~~~~~~~')
     return Promise.resolve(response)
   },
   error => {
+    const errMsg = error.toString()
+    const code = errMsg.substr(errMsg.indexOf('code') + 5)
+    switch (code) {
+      case '401':
+        notification.error({
+          message: '登录过期请重新登录'
+        })
+        break
+    }
     return Promise.reject(error)
   }
 )

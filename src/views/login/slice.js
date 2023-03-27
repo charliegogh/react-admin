@@ -44,6 +44,11 @@ const userSlice = createSlice({
           state.userInfo = data.sysUser
         }
       })
+      .addCase(getUserInfoAsync.rejected, (state, action) => {
+        removeToken()
+        state.token = undefined
+        state.userInfo = null
+      })
   }
 })
 // 暴露同步action

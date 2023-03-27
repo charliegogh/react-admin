@@ -22,7 +22,7 @@ function permission(WrappedComponent) {
         return <WrappedComponent />
       }
       dispatch(getUserInfoAsync())
-      // loading ````
+      // loading `
       return <Spin size='large' />
     } else {
       if (pathname === '/login') {
